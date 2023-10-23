@@ -1,0 +1,18 @@
+.content {
+  background-color: palette('white');
+  min-height: 100%;
+  padding: 40px;
+  hyphens: auto;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  @include mq('sm') {
+    padding: 40px 60px;
+  }
+
+  @include mq('xl') {
+    padding: 40px 120px;
+  }
+}

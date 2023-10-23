@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  color: palette('darkgray');
+}
+
+.page-container {
+  height: 100%;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  height: 0px;
+  margin: 2em auto;
+  border-bottom: 1px solid palette('gray', -10);
+}
+
+img, iframe {
+  max-width: 100%;
+}
+
+// definition lists
+dl {
+  dt {
+    float: left;
+    width: 150px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+
+  dd {
+    margin-left: 170px;
+    margin-bottom: 1em;
+    line-height: 1.45;
+  }
+}
+
+// tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &, td {
+    border: 1px solid palette('gray');
+  }
+
+  // row
+  tr {
+  }
+
+  // header
+  th {
+    border: 1px solid palette('blue', -10);
+    padding: 8px;
+    background-color: palette('blue');
+    color: palette('white');
+    font-weight: 400;
+  }
+
+  // column
+  td {
+    padding: 8px;
+    text-align: center;
+  }
+}
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  border-left: 6px solid palette('gray');
+  padding: 1px;
+  padding-left: 1.5rem;
+  color: palette('darkgray', 20);
+}
+
+ul li,
+ol li {
+  line-height: 1.35;
+}

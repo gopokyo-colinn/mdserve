@@ -1,0 +1,25 @@
+mixin renderChildren(currentPath, children, first)
+  each child in children
+    - var childWithoutExtension = child.name.slice(0, child.name.length - 3);
+    //- if its a directory, render it
+    if child.children
+      //- as long as it's not a reserved directory named _assets 
+      if child.name !== '_assets'
+        if child.indexed
+          a(href=currentPath + child.name)
+            li(style="padding-left: " + (first ? 15 : (15 + ((child.depth - 1) * 25))) + "px;")= child.name
+        else
+          li(style="padding-left: " + (first ? 15 : (15 + ((child.depth - 1) * 25))) + "px;" class="non-indexed")= child.name
+        //- recursively render the directory's children
+        +renderChildren(currentPath + child.name + '/', child.children)  
+    else
+      //- for non-directories, render only non-index files
+      if child.name !== 'index.md'
+        a(href=currentPath + childWithoutExtension)
+          li(style="padding-left: " + (first ? 15 : (15 + ((child.depth - 1) * 25))) + "px;")= childWithoutExtension
+
+div(class='col-xs-12 col-sm-3 navigation')
+  ul
+    a(href='/')
+      li(style="padding-left: 15px;" class="home") home
+    +renderChildren('/', tree.children, true)
